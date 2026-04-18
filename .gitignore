@@ -1,0 +1,9 @@
+
+*.pyc
+*.rerun.ipynb
+.DS_Store
+.ipynb_checkpoints/
+.venv/
+__pycache__/
+models/
+outputs/
