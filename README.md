@@ -58,8 +58,16 @@ Typical first-run local artifacts are modest for a real Gemma 4 example:
 - Python environment: roughly `0.5 GB`
 - Converted MLX model: roughly `2.5 GB`
 - Notebook files and repo content: well under `1 MB`
+- Peak active RAM during notebook execution on an M4 Pro: about `6.3 GiB`
 
 The notebook was verified on an Apple Silicon MacBook Pro with `24 GB` unified memory, and the setup path is intentionally kept small and direct.
+
+Measured notebook-process peaks on that machine:
+
+- Fresh first run: `6.37 GiB` RSS peak
+- Warm rerun: `6.29 GiB` RSS peak
+
+So the practical expectation is roughly `6.3 GiB` peak unified memory for the notebook process itself.
 
 Then open:
 
