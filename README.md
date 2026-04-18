@@ -25,8 +25,6 @@ Unsloth provided the original RL notebook structure and teaching flow. This repo
 
 ## Start in 3 Commands
 
-If Gemma 4 access requires authentication, export `HF_TOKEN` first.
-
 ```bash
 git clone https://github.com/scasella/train-gemma4-sudoku-on-your-macbook.git
 cd train-gemma4-sudoku-on-your-macbook
@@ -122,7 +120,3 @@ This writes:
 - The default run is tuned to stay practical on a laptop.
 - The final saved policy is selected conservatively so a tiny RL run does not silently end worse than its warm start.
 - The repo is meant to be discoverable, approachable, and fast to try.
-
-## Publish Notes
-
-Suggested GitHub metadata is in [GITHUB_METADATA.md](./GITHUB_METADATA.md).
