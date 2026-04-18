@@ -12,6 +12,10 @@ Train Gemma 4 to Solve Sudoku on Your MacBook using Reinforcement Learning
 
 Standalone MLX notebook for training Gemma 4 with reinforcement learning on Apple Silicon. Minimal setup, small local footprint, executed notebook by default, and a clean companion notebook.
 
+## Exact GitHub About Text
+
+Train Gemma 4 locally on Apple Silicon with one standalone MLX notebook. Minimal setup, executed notebook included, and a small first-run footprint.
+
 ## Suggested Topics
 
 - `gemma-4`
@@ -40,3 +44,7 @@ This repo should read as:
 - educational but real
 
 Avoid positioning it as a research benchmark repo or a production RL framework.
+
+## Suggested Pinned Profile Blurb
+
+Train Gemma 4 locally on a MacBook with one standalone notebook. Executed notebook included, clean notebook included, minimal setup, and a real inline RL loop with rewards, LoRA, and MLX.

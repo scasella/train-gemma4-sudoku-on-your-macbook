@@ -1,6 +1,28 @@
+<p align="center">
+  <img src="./assets/social-preview.png" alt="Train Gemma 4 to Solve Sudoku on Your MacBook using Reinforcement Learning" width="100%" />
+</p>
+
 # Train Gemma 4 to Solve Sudoku on Your MacBook using Reinforcement Learning
 
-A single-notebook, Apple Silicon-friendly reinforcement learning demo for people who want to see a real LLM training loop locally without setting up a large codebase first.
+<p align="center">
+  <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple%20Silicon-Local%20MLX-111111?style=flat-square" />
+  <img alt="Executed notebook" src="https://img.shields.io/badge/Executed%20Notebook-Included-0f766e?style=flat-square" />
+  <img alt="Setup" src="https://img.shields.io/badge/Setup-Minimal-1d4ed8?style=flat-square" />
+  <img alt="First run storage" src="https://img.shields.io/badge/First%20Run-~3GB-7c3aed?style=flat-square" />
+  <img alt="No CUDA" src="https://img.shields.io/badge/CUDA-Not%20Required-b91c1c?style=flat-square" />
+</p>
+
+One notebook, a small dependency list, and a fast local setup path for running Gemma 4 RL on Apple Silicon with MLX. Clone it, install dependencies, open JupyterLab, and you can inspect or rerun the full reward-definition and training loop locally.
+
+## Start in 3 Commands
+
+If Gemma 4 access requires authentication, export `HF_TOKEN` first.
+
+```bash
+git clone https://github.com/scasella/train-gemma4-sudoku-on-your-macbook.git
+cd train-gemma4-sudoku-on-your-macbook
+./script/setup_workspace_env.sh && ./script/run_jupyter_lab.sh
+```
 
 ## What You Get
 
@@ -29,17 +51,6 @@ Typical first-run local artifacts are modest for a real Gemma 4 example:
 - Notebook files and repo content: well under `1 MB`
 
 The notebook was verified on an Apple Silicon MacBook Pro with `24 GB` unified memory, and the setup path is intentionally kept small and direct.
-
-## Fast Setup
-
-If Gemma 4 access requires authentication, export `HF_TOKEN` first.
-
-```bash
-git clone <your-repo-url>
-cd train-gemma4-sudoku-on-your-macbook
-./script/setup_workspace_env.sh
-./script/run_jupyter_lab.sh
-```
 
 Then open:
 

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Train Gemma 4 to Solve Sudoku on Your MacBook using Reinforcement Learning</title>
+  <style>
+    :root {
+      --bg: #eef2ff;
+      --panel: rgba(255, 255, 255, 0.82);
+      --panel-strong: rgba(255, 255, 255, 0.96);
+      --ink: #10213a;
+      --muted: #475569;
+      --blue: #2563eb;
+      --teal: #0f766e;
+      --red: #b91c1c;
+      --purple: #7c3aed;
+      --line: rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      width: 1280px;
+      height: 640px;
+      overflow: hidden;
+      font-family: SF Pro Display, Inter, ui-sans-serif, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(15, 118, 110, 0.16), transparent 30%),
+        linear-gradient(135deg, #eff6ff 0%, #eef2ff 48%, #f8fafc 100%);
+    }
+
+    .frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1.65fr 0.95fr;
+      gap: 28px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 22px 60px rgba(37, 99, 235, 0.08);
+    }
+
+    .hero {
+      padding: 34px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    h1 {
+      margin: 18px 0 16px;
+      font-size: 50px;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 760px;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 760px;
+      font-size: 22px;
+      line-height: 1.42;
+      color: var(--muted);
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+
+    .badge.blue { color: var(--blue); }
+    .badge.teal { color: var(--teal); }
+    .badge.red { color: var(--red); }
+    .badge.purple { color: var(--purple); }
+
+    .right {
+      display: grid;
+      grid-template-rows: 1fr 210px;
+      gap: 22px;
+    }
+
+    .specs {
+      padding: 26px 26px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .specs h2,
+    .commands h2 {
+      margin: 0 0 16px;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .spec-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .spec {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 17px;
+    }
+
+    .spec:last-child {
+      border-bottom: 0;
+    }
+
+    .spec .label {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .spec .value {
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .commands {
+      padding: 24px 26px;
+      background: rgba(16, 33, 58, 0.92);
+      color: #f8fafc;
+      border-radius: 30px;
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.16);
+    }
+
+    pre {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      color: #dbeafe;
+      font-family: SF Mono, ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .accent {
+      font-weight: 800;
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <section class="panel hero">
+      <div>
+        <div class="eyebrow">Apple Silicon • MLX • Standalone Notebook</div>
+        <h1>Train Gemma 4 to Solve Sudoku on Your MacBook using Reinforcement Learning</h1>
+        <p class="lede">One executed notebook, one clean notebook, minimal setup, and a real local RL loop with rewards, LoRA, and MLX. No CUDA. No helper package. No big framework checkout.</p>
+        <div class="badges">
+          <div class="badge blue">Executed notebook included</div>
+          <div class="badge teal">Fast local setup</div>
+          <div class="badge purple">~3 GB first run</div>
+          <div class="badge red">No CUDA required</div>
+        </div>
+      </div>
+      <div class="footer">
+        <span><span class="accent">Best for:</span> newcomers who want a real local Gemma 4 RL example</span>
+        <span><span class="accent">Stack:</span> Gemma 4 • MLX • Sudoku RL</span>
+      </div>
+    </section>
+
+    <div class="right">
+      <section class="panel specs">
+        <div>
+          <h2>What you get</h2>
+          <div class="spec-list">
+            <div class="spec"><span class="label">Main artifact</span><span class="value">1 notebook</span></div>
+            <div class="spec"><span class="label">Dependencies</span><span class="value">1 requirements file</span></div>
+            <div class="spec"><span class="label">Helper scripts</span><span class="value">3 tiny scripts</span></div>
+            <div class="spec"><span class="label">Memory target</span><span class="value">24 GB tested</span></div>
+            <div class="spec"><span class="label">Model storage</span><span class="value">~2.5 GB</span></div>
+            <div class="spec"><span class="label">Environment size</span><span class="value">~0.5 GB</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="commands">
+        <h2>Fast setup</h2>
+        <pre>git clone https://github.com/scasella/train-gemma4-sudoku-on-your-macbook.git
+cd train-gemma4-sudoku-on-your-macbook
+./script/setup_workspace_env.sh
+./script/run_jupyter_lab.sh</pre>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
