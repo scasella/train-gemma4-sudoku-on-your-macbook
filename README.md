@@ -14,6 +14,15 @@
 
 One notebook, a small dependency list, and a fast local setup path for running Gemma 4 RL on Apple Silicon with MLX. Clone it, install dependencies, open JupyterLab, and you can inspect or rerun the full reward-definition and training loop locally.
 
+## Credit
+
+This project is an Apple Silicon / MLX adaptation of Unsloth's original Gemma 4 reinforcement learning Sudoku notebook.
+
+- Original Unsloth project: [unslothai/unsloth](https://github.com/unslothai/unsloth)
+- Original notebook source: [Gemma4_(E2B)_Reinforcement_Learning_Sudoku_Game.ipynb](https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Gemma4_(E2B)_Reinforcement_Learning_Sudoku_Game.ipynb)
+
+Unsloth provided the original RL notebook structure and teaching flow. This repo repackages and optimizes that idea for a minimal, standalone, Mac-friendly MLX workflow.
+
 ## Start in 3 Commands
 
 If Gemma 4 access requires authentication, export `HF_TOKEN` first.
