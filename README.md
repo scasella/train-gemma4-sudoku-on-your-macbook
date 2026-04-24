@@ -4,6 +4,8 @@
 
 # Train Gemma 4 to Solve Sudoku on Your MacBook using Reinforcement Learning
 
+<p align="center"><strong>One-notebook Gemma 4 RL on Apple Silicon.</strong></p>
+
 <p align="center">
   <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple%20Silicon-Local%20MLX-111111?style=flat-square" />
   <img alt="Executed notebook" src="https://img.shields.io/badge/Executed%20Notebook-Included-0f766e?style=flat-square" />
